@@ -12,8 +12,8 @@ export class QuoteComponent implements OnInit {
 
 
   quotes = [
-    new Quote(1, 'Fear is never the source of security' , 'Wangari Maathai' , new Date(2020, 4, 1)),
-    new Quote (2 , 'Its not about what you\have been through , its about what you became' , 'Trevor Jayson' , new Date(2020,4, 1)),
+    new Quote(1, 'Fear is never the source of security' , 'Wangari Maathai' , new Date(2020, 3, 1)),
+    new Quote (2 , 'Its not about what you\have been through , its about what you became' , 'Trevor Jayson' , new Date(2020,3, 1)),
   ];
   likeButtonClick(index) {
     this.numberOfLikes++;
