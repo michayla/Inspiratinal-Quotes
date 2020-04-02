@@ -4,12 +4,7 @@
 * Michelle Michuki
 ## How to use
 You write a post, then you write the name of the author. You can view post from other people and also choose to either up vote or down vote
-## Setup/Installation Requirements
-* This is a great place
-* to list setup instructions
-* in a simple
-* easy-to-understand
-* format
+
 ## Known Bugs
 No known bugs yet
 ## Technologies Used
