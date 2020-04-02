@@ -22,4 +22,4 @@ No known bugs yet
 ## Support and contact details
 Incase of any issue, reach me at michukimichelle@gmail.com
 ### License
-This project is under MIT licence
+This project is under MIT license
