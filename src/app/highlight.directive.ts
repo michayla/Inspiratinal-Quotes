@@ -1,22 +1,31 @@
-import { Directive , ElementRef , HostListener} from '@angular/core';
+import { Directive, Input, SimpleChanges, Renderer2, ElementRef } from '@angular/core';
 
 @Directive({
   selector: '[appHighlight]'
 })
 export class HighlightDirective {
+  @Input() searchedWords: string[];
+  @Input() text: string;
+  @Input() classToApply: string;
 
-  constructor(private elem: ElementRef) { }
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
 
-  @HostListener('click') onClicks() {
-    this.textDeco('line-through');
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!this.searchedWords || !this.searchedWords.length || !this.classToApply) {
+      this.renderer.setProperty(this.el.nativeElement, 'innerHTML', this.text);
+      return;
+    }
+
+    this.renderer.setProperty(
+      this.el.nativeElement,
+      'innerHTML',
+      this.getFormattedText()
+    );
   }
 
-  @HostListener('dblclick') onDoubleClicks() {
-    this.textDeco('None');
-  }
+  getFormattedText() {
+    const re = new RegExp(`(${ this.searchedWords.join('|') })`, 'g');
 
-  private textDeco(action: string) {
-    this.elem.nativeElement.style.textDecoration = action;
-
+    return this.text.replace(re, `<span class="${this.classToApply}">$1</span>`);
   }
 }
